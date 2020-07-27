@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                         @endif
-                        <form method="POST"  name="formDenuncia" id="formDenuncia">
+                        <form method="POST"  name="formDenuncia" id="formDenuncia" enctype="multipart/form-data">
                             @csrf
                             <div class="panel panel-success">
                                 <div class="panel-heading"><h3>Dados da Denuncia</h3></div>
@@ -86,10 +86,22 @@
                                         </div>
                                     </div>    
                                     <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label for="anexos">Anexar Arquivos</label>
-                                                <input type="text" name="anexos" id="anexos" class="form-control" placeholder="Selecione os arquivos">
+                                                <label for="anexoUm">Anexar Arquivo Um</label>
+                                                <input type="file" name="anexoUm" id="anexoUm" class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="anexoDois">Anexar Arquivo Dois</label>
+                                                <input type="file" name="anexoDois" id="anexoDois" class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="anexoTres">Anexar Arquivo Tres</label>
+                                                <input type="file" name="anexoTres" id="anexoTres" class="form-control" >
                                             </div>
                                         </div>
                                     </div>    
@@ -110,7 +122,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="telefone">Telefone</label>
-                                                <input type="text" name="telefone" id="telefone"  value="{{old('telefone')}}"class="form-control" placeholder="Informe o seu telefone">
+                                                <input type="text" name="telefone" id="telefone"  value="{{old('telefone')}}"class="form-control" placeholder="9999-9999 ou 9999-99999" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                                             </div>
                                         </div>
                                     </div>   
@@ -118,7 +130,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="email">Email</label>
-                                                <input type="email" name="email" id="email"  value="{{old('email')}}" class="form-control" placeholder="Informe seu email">
+                                                <input type="email" name="email" id="email"  value="{{old('email')}}" class="form-control" placeholder="denuncia@gmail.com">
                                             </div>
                                         </div>
                                     </div>    
@@ -126,7 +138,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="cpf">Cpf</label>
-                                                <input type="text" name="cpf" id="cpf"  value="{{old('cpf')}}" class="form-control" placeholder="Informe o seu cpf">
+                                                <input type="text" name="cpf" id="cpf"  value="{{old('cpf')}}" class="form-control" placeholder="Informe o seu cpf" onblur="validaFormato(this);">
                                             </div>
                                         </div>
                                     </div>    
@@ -153,5 +165,7 @@
 
         <script type="text/javascript" src="{{('/assets/js/jquery-3.1.1.min.js')}}"></script>
         <script type="text/javascript" src="{{('/assets/js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{('/assets/js/validaTelefone.js')}}"></script>
+        <script type="text/javascript" src="{{('/assets/js/validaCpf.js')}}"></script>
     </body>
 </html>

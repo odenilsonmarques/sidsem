@@ -17,7 +17,7 @@ class DenunciaController extends Controller
 
         $request->validate([
             'crime'=>['required','string'],
-            'descricao'=>['required','string','min:20'],
+            'descricao'=>['required','string','min:15'],
             'infrator'=>['required','string','min:5'],
             'bairro'=>['required','string','min:5'],
             'rua'=>['required','string','min:4'],
@@ -25,7 +25,6 @@ class DenunciaController extends Controller
             'telefone'=>['required','string'],
             'email'=>['required','string'],
             'cpf'=>['required','string']
-            
         ]);
 
         $crime = $request->input('crime');
@@ -33,12 +32,28 @@ class DenunciaController extends Controller
         $infrator = $request->input('infrator');
         $bairro = $request->input('bairro');
         $rua = $request->input('rua');
-        //$anexos = $request->input('anexos');
         $denunciante = $request->input('denunciante');
         $telefone = $request->input('telefone');
         $email = $request->input('email');
         $cpf = $request->input('cpf');
-        
+
+        if($request->hasFile('anexoUm') && $request->anexoUm->isValid()){
+            $anexoUm = $request->file('anexoUm')->store('imagens');
+        }else if ($request->hasFile('anexoUm') == null){
+            $anexoUm = '';
+        }
+
+        if($request->hasFile('anexoDois') && $request->anexoDois->isValid()){
+            $anexoDois = $request->file('anexoDois')->store('imagens');
+        }else if ($request->hasFile('anexoDois') == null){
+            $anexoDois = '';
+        }
+
+        if($request->hasFile('anexoTres') && $request->anexoTres->isValid()){
+            $anexoTres = $request->file('anexoTres')->store('imagens');
+        }else if ($request->hasFile('anexoTres') == null){
+            $anexoTres = '';
+        }
 
         $data = new Denuncia();
         $data-> crime = $crime;
@@ -46,7 +61,9 @@ class DenunciaController extends Controller
         $data-> infrator = $infrator;
         $data-> bairro = $bairro;
         $data-> rua = $rua;
-       // $data ->anexos = $anexos;
+        $data -> anexoUm = $anexoUm;
+        $data -> anexoDois = $anexoDois;
+        $data -> anexoTres = $anexoTres;
         $data-> denunciante = $denunciante;
         $data-> telefone = $telefone;
         $data-> email = $email;

@@ -42,9 +42,13 @@
                                                 <p style="font-size:22px">NOME DO INFRATOR: {{$dados->infrator}}.</p><hr>
                                                 <p style="font-size:22px">BAIRRO: {{$dados->bairro}}.</p><hr>
                                                 <p style="font-size:22px">RUA: {{$dados->rua}}.</p><hr>
-                                                <p style="font-size:22px">DATA E HORA: {{\Carbon\Carbon::parse($dados->data)->format('d/m/Y \a\s H:i:s')}}.</p>
-                                                
-                                                
+                                                <p style="font-size:22px">DATA E HORA: {{\Carbon\Carbon::parse($dados->data)->format('d/m/Y \a\s H:i:s')}}.</p><hr>
+                                                <p style="font-size:22px">ANEXOS</p>
+                                                @if ($dados->anexoUm or $dados->anexoDois or $dados->anexoTres)
+                                                    <img src="{{url("storage/{$dados->anexoUm}")}}" alt="{{$dados->name}}" style="width:170px;height:120px">
+                                                    <img src="{{url("storage/{$dados->anexoDois}")}}" alt="{{$dados->name}}" style="width:170px;height:120px">
+                                                    <img src="{{url("storage/{$dados->anexoTres}")}}" alt="{{$dados->name}}" style="width:170px;height:120px">
+                                                @endif
                                          
                                           
                                         </div>
