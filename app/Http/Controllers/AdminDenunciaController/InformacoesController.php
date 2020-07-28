@@ -12,6 +12,6 @@ class InformacoesController extends Controller
 {
     public function exibe(Request $id){
         $dados = Denuncia::all()->sortByDesc('id')->first();
-        return view('AdminDenunciaView.exibeInformacao',['dados'=>$dados]);
+        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);
     }
 }

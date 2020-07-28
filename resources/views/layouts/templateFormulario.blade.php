@@ -5,6 +5,7 @@
         <meta name="description" content="@yield('description')">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{('/assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{('/assets/css/estiloFormAdicionaDenuncia.css')}}">
     </head>
 
     <body>
@@ -84,7 +85,14 @@
                                                 <input type="text" name="rua" id="rua" value="{{old('rua')}}" class="form-control" placeholder="Informe a rua que está acontecendo o crime">
                                             </div>
                                         </div>
-                                    </div>    
+                                    </div> 
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <input type="text" name="status" id="status" value="Feita" readonly="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>   
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">

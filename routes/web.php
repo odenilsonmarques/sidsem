@@ -19,8 +19,12 @@ Route::prefix('controledenuncia')->group(function(){
     Route::get('adicionaDenuncia','AdminDenunciaController\DenunciaController@adiciona')->name('adicionaDenuncia');
     Route::post('adicionaDenuncia','AdminDenunciaController\DenunciaController@adicionaAction');
 
-    Route::get('exibeInformacao','AdminDenunciaController\InformacoesController@exibe')->name('exibeInformacao');
+    Route::get('exibeInformacaoDenuncia','AdminDenunciaController\InformacoesController@exibe')->name('exibeInformacaoDenuncia');
 
     Route::get('pdf','AdminDenunciaController\PdfController@exibePdf')->name('pdf');
 
+    Route::get('listaDenuncia','AdminDenunciaController\DenunciaController@lista')->name('listaDenuncia');
+
+    Route::get('editaDenuncia/{id}','AdminDenunciaController\DenunciaController@edita')->name('editaDenuncia');
+    Route::Post('editaDenuncia/{id}','AdminDenunciaController\DenunciaController@editaAction');
 });
