@@ -1,0 +1,26 @@
+a:hover{
+    text-decoration: none;  
+}
+h4{
+    color:#2F4F4F;
+}
+.glyphicon{
+    color:#3CB371; 
+    font-size:60px;
+}
+p{
+    color:#2F4F4F;
+    font-size:18px;
+}
+h1{
+    color: #111111;
+    font-size:20px;
+}
+h2{
+    color: #3CB371;
+    font-size:20px;
+}
+img{
+   width:110px; 
+   height:100px;
+}

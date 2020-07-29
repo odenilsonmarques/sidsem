@@ -60,7 +60,8 @@
                                         <p style="font-size:22px">BAIRRO: {{$data->bairro}}.</p><hr>
                                         <p style="font-size:22px">RUA: {{$data->rua}}.</p><hr>
                                         <p style="font-size:22px">DATA E HORA: {{\Carbon\Carbon::parse($data->data)->format('d/m/Y \a\s H:i:s')}}.</p><hr>
-                                        <p style="font-size:22px">ANEXOS</p><hr>
+                                        <p style="font-size:22px">Nº DA DENUNCIA : {{$data->id}}.</p><hr>
+                                        <p style="font-size:22px">ANEXOS</p>
                                         @if ($data->anexoUm or $data->anexoDois or $data->anexoTres)
                                             <img src="{{url("storage/{$data->anexoUm}")}}" alt="{{$data->name}}" style="width:170px;height:120px">
                                             <img src="{{url("storage/{$data->anexoDois}")}}" alt="{{$data->name}}" style="width:170px;height:120px">

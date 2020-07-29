@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','AdminDenunciaController\HomeController@index');
+Route::get('/','AdminDenunciaController\HomeController@index')->name('/');
 
 //onde tem controledenuncia, trocar para denuncia
 Route::prefix('controledenuncia')->group(function(){

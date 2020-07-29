@@ -89,7 +89,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <input type="text" name="status" id="status" value="Feita" readonly="" class="form-control">
+                                                <input type="text" name="status" id="status" value="Recebida" readonly="" class="form-control">
                                             </div>
                                         </div>
                                     </div>   
