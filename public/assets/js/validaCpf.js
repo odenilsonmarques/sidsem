@@ -11,35 +11,21 @@ function validaFormato(element) {
                 divResultado.innerText = "CPF Inválido!";
                 divResultado = document.getElementById('cpf').value = '';
                 element.select();             
-                return false;
-                 
+                return false; 
             }
-            else
-            {
-//                divResultado.innerText = "CPF Válido!";
+            else{
+                divResultado.innerText = "CPF Válido!";
                 element.value=mascaraCPF(strDocument);
                 return true;
             }
-        }
-        if (sizeStrDocument === 14){
-            if(!validaCNPJ(strDocument)){
-                divResultado.innerText = "CNPJ Inválido!";
-                element.select();
-                return false;
-            }
-            else {
-                divResultado.innerText = "CNPJ Válido!";
-                element.value = mascaraCNPJ(strDocument);
-                return true;
-            }
-        }
+        }   
     } else {
-        strDocument === "" ? divResultado.innerText = "" : divResultado.innerText = "Erro, Por Favor Informe um CPF ou CNPJ Válido!";
+        strDocument === "" ? divResultado.innerText = "" : divResultado.innerText = 'Erro, Por Favor Informe um CPF Válido!';
         return false;
     }
 }
 
-// Fun��o que valida o CPF
+// Funcao que valida o CPF
 function validaCPF(strDocument) {
     var soma;
     var resto;
@@ -73,35 +59,9 @@ function validaCPF(strDocument) {
     return true;
 }
 
-// Fun��o que valida o CNPJ
-function validaCNPJ(CNPJ) {
-    var validaArray = [6,5,4,3,2,9,8,7,6,5,4,3,2];
-    var primeiroDigito = new Number;
-    var segundoDigito = new Number;
-    var digito = Number(eval(CNPJ.charAt(12)+CNPJ.charAt(13)));
 
-    for(i = 0; i<validaArray.length; i++){
-        primeiroDigito += (i>0? (CNPJ.charAt(i-1)*validaArray[i]):0);
-        segundoDigito += CNPJ.charAt(i)*validaArray[i];
-    }
-    primeiroDigito = (((primeiroDigito%11)<2)? 0:(11-(primeiroDigito%11)));
-    segundoDigito = (((segundoDigito%11)<2)? 0:(11-(segundoDigito%11)));
 
-    resultado = (((primeiroDigito*10)+segundoDigito)) === digito ? true : false;
-    return resultado;
-}
-
-// Fun��o de mascara para o CPF
-function mascaraCPF(CPF){
-    return CPF.substring(0,3)+"."+CPF.substring(3,6)+"."+CPF.substring(6,9)+"-"+CPF.substring(9,11);
-}
-
-//	Fun��o de mascara para o CNPJ
-function mascaraCNPJ(CNPJ){
-    return CNPJ.substring(0,2)+"."+CNPJ.substring(2,5)+"."+CNPJ.substring(5,8)+"/"+CNPJ.substring(8,12)+"-"+CNPJ.substring(12,14);
-}
-
-// Fun��o que bloqueia teclas n�o num�ricas
+// Funcaoo que bloqueia teclas nao numericas
 function apenasNumeros(e)
 {
     if (document.all){var evt=event.keyCode;}
@@ -109,3 +69,4 @@ function apenasNumeros(e)
     if (evt <20 || (evt >47 && evt<58)){return true;}
     return false;
 }
+

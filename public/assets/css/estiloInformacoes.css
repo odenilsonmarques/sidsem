@@ -1,35 +1,38 @@
 .cabecalho{
     text-align:center;
-    border: 1px solid #06400F;
 }
 h1{
-    color: #06400F;
-    margin-bottom:0%;
+    color: #FFF;
+    text-align: center;
 }
 h3{
-    color: #06400F;
-    text-align:center;
-}
-h2{
-    background-color: #06400F;
-    padding: 5px;
-    color: #ffffff;
+    color: #FFF;
+    text-align: center;
 }
 p{
-    font-size:18px;
-}
-span{
-    font-size:20px;
-}
-.rodape p{
-    margin-top: 50%;
-    text-align: center;
     font-size:15px;
 }
+.alert-success{
+    font-size: 20px;
+}
+img{
+    width:170px;
+    height:120px;
 
-header .panel-default {
-    text-align:center;
-    color: #fff;
-    border:none;
 }
 
+.panel-heading h3{
+    text-align: left;
+    color: #20B2AA;
+    font-size: 19px;
+    font-family: sans-serif;
+}
+
+.btn {
+    font-size: 15px;
+    font-family: sans-serif;
+}
+.glyphicon{
+    font-size: 15px;
+    margin-left:5px;
+}

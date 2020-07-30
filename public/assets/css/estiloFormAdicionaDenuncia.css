@@ -1,23 +1,9 @@
-.cabecalho{
-    background-color:#20B2AA;
-}
-
-.alert-info{
-    text-align: center;
-}
-
-
- li{
-    text-align: left;
-    font-size: 15px;
-}
-
-h5{
-    color:#2F4F4F;
-    font-size: 17px;
-}
-
-
 #status{
     display: none;
+}
+.panel-heading h3{
+    text-align: left;
+    color: #20B2AA;
+    font-size: 19px;
+    font-family: sans-serif;
 }
