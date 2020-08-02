@@ -26,9 +26,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4 text-center">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <h4><strong>Área Restrita</strong></h4>
-                                <p>Somente pessoas autorizadas</p>
+                                <a href="{{route('login')}}">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <h4><strong>Área Restrita</strong></h4>
+                                    <p>Somente pessoas autorizadas</p>
+                                </a>
                             </div>
                             <div class="col-lg-4 text-center">
                                 <a href="{{route('adicionaDenuncia')}}">

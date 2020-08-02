@@ -28,3 +28,6 @@ Route::prefix('controledenuncia')->group(function(){
     Route::get('editaDenuncia/{id}','AdminDenunciaController\DenunciaController@edita')->name('editaDenuncia');
     Route::Post('editaDenuncia/{id}','AdminDenunciaController\DenunciaController@editaAction');
 });
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

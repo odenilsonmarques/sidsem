@@ -25,7 +25,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //quando o usuario logar ele é redirecionado para a pagina lista de denuncia
+    protected $redirectTo = 'controledenuncia/listaDenuncia';
 
     /**
      * Create a new controller instance.

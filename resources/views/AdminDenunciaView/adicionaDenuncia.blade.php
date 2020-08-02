@@ -18,6 +18,7 @@
                         <div class="col-lg-12">
                             <h1><strong>SEMAM</strong></h1>
                             <h3>Secretaria Municipal do Ambiente</h3>
+                            <h4>Departamento de Fiscalização Ambiental</h4>
                             <div class="alert alert-info  alert-dismissible">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">Fechar &times;</a>
                                 <h4><b>Bem - vindo ao cadastro de denuncia!</b><h4>

@@ -1,9 +1,12 @@
 
+.glyphicon{
+    margin-left: 10px;
+}
 
-.cabecalho{
-    
-    color:#FFF;
-    background-color: #06400F;
+a{
+    color: #fff;
+}
 
-
+ul{
+    border:1px solid #FFF;
 }
