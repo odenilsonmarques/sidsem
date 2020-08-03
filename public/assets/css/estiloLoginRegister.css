@@ -1,0 +1,18 @@
+.body{
+    background-color:#3CB371;
+}
+h1, h3{
+    color:#FFF;
+    text-align: center;
+}
+label{
+    color:#FFF;
+}
+
+body{
+    background-color:none;
+}
+
+span{
+    color:#FFF;
+}

@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4" style="background-color:#3CB371">
+        <div class="col-lg-4 body">
             <form method="POST" action="{{route('login') }}">
                 @csrf
-                <h1 style="text-align:center;color:#FFF">SidSem</h1>
-                <h3 style="text-align:center;color:#FFF">Sistema de Denuncia Semam</h3><br/>
+                <h1>SidSem</h1>
+                <h3>Sistema de Denuncia Semam</h3><br/>
                 
                 @error('email')
                     <div class="alert alert-danger text-center">
@@ -18,12 +18,12 @@
                     </div>
                 @enderror
                 <div class="form-group">
-                    <label for="email" style="color:#FFF">E-mail</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>  
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Digite o email">  
                 </div>
                 <div class="form-group">
-                    <label for="password" style="color:#FFF">Senha</label>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <label for="password">Senha</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Digite a senha">
                 </div>
                 <div class="form-group">
                     <div class="form-check">

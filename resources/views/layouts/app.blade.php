@@ -22,6 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     -->
     <link rel="stylesheet" href="{{('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{('assets/css/estiloLoginRegister.css')}}">
 </head>
 <body>
     <div id="app">

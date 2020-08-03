@@ -29,7 +29,7 @@ class RegisterController extends Controller
      * @var string
      */
     //quando o usuario for cadastrado ele é redirecionado para a pagina de login
-    protected $redirectTo = 'login';
+    protected $redirectTo = 'controledenuncia/listaDenuncia';
 
     /**
      * Create a new controller instance.
@@ -50,9 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:5', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'matricula' => ['required', 'string'],
+            'matricula' => ['required', 'string', 'min:6', 'max:7'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
