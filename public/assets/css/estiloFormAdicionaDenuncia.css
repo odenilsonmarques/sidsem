@@ -3,7 +3,11 @@
 }
 .panel-heading h3{
     text-align: left;
-    color: #20B2AA;
+    color: #3CB371;
     font-size: 19px;
     font-family: sans-serif;
+}
+
+label{
+    color: #3CB371;
 }
