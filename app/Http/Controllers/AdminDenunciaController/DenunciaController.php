@@ -25,9 +25,9 @@ class DenunciaController extends Controller
             'descricao'=>['required','string','min:15','max:200'],
             'infrator'=>['required','string','min:5','max:30'],
             'bairro'=>['required','string','min:5','max:20'],
-            'rua'=>['required','string','min:4','max:20'],
+            'rua'=>['required','string','min:4','max:35'],
             'status'=>['required','string'],
-            'denunciante'=>['required','string','min:10','max:30'],
+            'denunciante'=>['required','string','min:5','max:30'],
             'telefone'=>['required','string'],
             'cpf'=>['required','string']
         ]);

@@ -63,12 +63,12 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="crime">Tipo de crime</label>
-                                                <select name="crime" id="crime" class="form-control" value="{{old('crime')}}" autofocus="">
+                                                <select name="crime" id="crime" class="form-control" autofocus="">{{old('crime')}}
                                                     <option></option>
-                                                    <option value="Atividade sem licenciamento">Atividade sem licenciamento</option>
-                                                    <option value="Crime contra a flora">Crime contra a flora</option>
-                                                    <option value="Crime contra a fauna">Crime contra a fauna</option>
-                                                    <option value="Poluicao">Poluicao</option>
+                                                    <option value="Atividade sem licenciamento" @if (old('crime') == "Atividade sem licenciamento") {{'selected'}} @endif>Atividade sem licenciamento</option>
+                                                    <option value="Crime contra a flora" @if (old('crime') == "Crime contra a flora") {{'selected'}} @endif>Crime contra a flora</option>
+                                                    <option value="Crime contra a fauna" @if (old('crime') == "Crime contra a fauna") {{'selected'}} @endif>Crime contra a fauna</option>
+                                                    <option value="Poluicao" @if (old('crime') == "Poluicao") {{'selected'}} @endif>Poluicao</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -77,7 +77,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="descricao">Descricão</label>
-                                                <textarea name="descricao" id="descricao" rows="2" value="{{old('descricao')}}" class="form-control" placeholder="Descreva aqui detalhes sobre a denuncia"></textarea>
+                                                <textarea name="descricao" id="descricao" rows="2" class="form-control" placeholder="Descreva aqui detalhes sobre a denuncia">{{old('descricao')}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -113,19 +113,19 @@
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="anexoUm">Anexar Arquivo Um</label>
-                                                <input type="file" name="anexoUm" id="anexoUm" class="form-control" >
+                                                <input type="file" name="anexoUm" id="anexoUm" value="{{old('anexoUm')}}" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="anexoDois">Anexar Arquivo Dois</label>
-                                                <input type="file" name="anexoDois" id="anexoDois" class="form-control" >
+                                                <input type="file" name="anexoDois" id="anexoDois" value="{{old('anexoDois')}}" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="anexoTres">Anexar Arquivo Tres</label>
-                                                <input type="file" name="anexoTres" id="anexoTres" class="form-control" >
+                                                <input type="file" name="anexoTres" id="anexoTres" value="{{old('anexoTres')}}" class="form-control">
                                             </div>
                                         </div>
                                     </div>    
@@ -138,7 +138,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="denunciante">Nome</label>
-                                                <input type="text" name="denunciante" id="denunciante"  value="{{old('denunciante')}}" class="form-control" placeholder="Informe seu nome">
+                                                <input type="text" name="denunciante" id="denunciante"  value="{{old('denunciante')}}" class="form-control" placeholder="Informe seu nome"  onKeypress="return letras(event)">
                                             </div>
                                         </div>
                                     
@@ -189,5 +189,6 @@
         <script type="text/javascript" src="{{('/assets/js/jquery.mask.min.js')}}"></script>
         <script type="text/javascript" src="{{('/assets/js/validaCpf.js')}}"></script>
         <script type="text/javascript" src="{{('/assets/js/mascarCpf.js')}}"></script>
+        <script type="text/javascript" src="{{('/assets/js/somenteLetras.js')}}"></script>
     </body>
 </html>
