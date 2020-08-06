@@ -108,12 +108,17 @@
                                                 <input type="text" name="status" id="status" value="Recebida" readonly="" class="form-control">
                                             </div>
                                         </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" name="descricaoDoArquivamento" id="descricaoDoArquivamento" value="Não" readonly="" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>   
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="anexoUm">Anexar Arquivo Um</label>
-                                                <input type="file" name="anexoUm" id="anexoUm" value="{{old('anexoUm')}}" class="form-control">
+                                                <input type="file" name="anexoUm" id="anexoUm"  value="{{old('anexoUm')}}" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">

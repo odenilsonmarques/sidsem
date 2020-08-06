@@ -22,14 +22,14 @@ class DenunciaController extends Controller
 
         $request->validate([
             'crime'=>['required','string'],
-            'descricao'=>['required','string','min:15','max:200'],
+            'descricao'=>['required','string','min:10','max:200'],
             'infrator'=>['required','string','min:5','max:30'],
             'bairro'=>['required','string','min:5','max:20'],
-            'rua'=>['required','string','min:4','max:35'],
+            'rua'=>['required','string','min:4','max:25'],
             'status'=>['required','string'],
+            'descricaoDoArquivamento'=>['required','string'],
             'denunciante'=>['required','string','min:5','max:30'],
-            'telefone'=>['required','string'],
-            'cpf'=>['required','string']
+            'telefone'=>['required','string']
         ]);
 
         $crime = $request->input('crime');
@@ -38,6 +38,7 @@ class DenunciaController extends Controller
         $bairro = $request->input('bairro');
         $rua = $request->input('rua');
         $status = $request->input('status');
+        $descricaoDoArquivamento = $request->input('descricaoDoArquivamento');
         $denunciante = $request->input('denunciante');
         $telefone = $request->input('telefone');
         $email = $request->input('email');
@@ -68,6 +69,7 @@ class DenunciaController extends Controller
         $data-> bairro = $bairro;
         $data-> rua = $rua;
         $data-> status = $status;
+        $data-> descricaoDoArquivamento = $descricaoDoArquivamento;
         $data -> anexoUm = $anexoUm;
         $data -> anexoDois = $anexoDois;
         $data -> anexoTres = $anexoTres;

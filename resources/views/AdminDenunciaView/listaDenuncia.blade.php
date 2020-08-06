@@ -56,7 +56,7 @@
                                     <th>INFRATOR</th>
                                     <th>BAIRRO</th>
                                     <th>RUA</th>
-                                    <th>Data</th>
+                                    <th>DATA E HORA</th>
                                     <th>Detalhes</th>
                                     <th>status</th>
                                 </tr>
