@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <input type="text" name="descricaoDoArquivamento" id="descricaoDoArquivamento" value="Não" readonly="" class="form-control">
+                                                <input type="text" name="descricaoDoArquivamento" id="descricaoDoArquivamento" value="Aguardado para ser analisada" readonly="" class="form-control">
                                             </div>
                                         </div>
                                     </div>   

@@ -93,12 +93,14 @@ class DenunciaController extends Controller
     public function editaAction(Request $request, $id){
         $request->validate([
             'status'=>['required','string'],
+            'descricaoDoArquivamento'=>['required','string']
         ]);
         $status = $request->input('status');
+        $descricaoDoArquivamento = $request->input('descricaoDoArquivamento');
 
         try{
             Denuncia::find($id)
-            ->update(['status'=>$status]);
+            ->update(['status'=>$status,'descricaoDoArquivamento'=>$descricaoDoArquivamento]);
             return redirect()->route('listaDenuncia')
             ->With('SucessoEdita','Status alterado com sucesso!');
         }catch(\Exception $e){

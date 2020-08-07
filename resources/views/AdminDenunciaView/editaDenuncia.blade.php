@@ -51,7 +51,19 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="panel panel-success">
-                            <div class="panel-heading"><h3><strong>Confira os dados da denúncia</strong></h3></div>
+                            <div class="panel-heading"><h3><strong>DADOS DO DENUNCIANTE</strong></h3></div>
+                            <div class="panel-body">
+                                <p><b>DENUNCIANTE:</b><br> {{$data->denunciante}}.</p>
+                                <p><b>TELEFONE: </b><br>{{$data->telefone}}.</p>
+                                <p><b>E-MAIL:</b><br> {{$data->email}}.</p>
+                                <p><b>CPF:</b><br> {{$data->cpf}}.</p>   
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="panel panel-success">
+                            <div class="panel-heading"><h3><strong>DADOS DA DENUNCIA</strong></h3></div>
                             <div class="panel-body">
                                 <p><b>TIPO DE CRIME:</b><br> {{$data->crime}}.</p>
                                 <p><b>DESCRIÇÃO DO CRIME:</b><br>  {{$data->descricao}}.</p>
@@ -67,39 +79,31 @@
                                     <img src="{{url("storage/{$data->anexoTres}")}}" alt="{{$data->name}}">
                                 @endif 
                             </div>
+                            <a href="{{route('pdf')}}" class="btn btn-sm btn-default"><strong>IMPRIMIR COMPROVANTE</strong><span class="glyphicon glyphicon-print"></span></a><br/><br/>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="panel panel-success">
-                            <div class="panel-heading"><h3><strong>Dados do denunciante</strong></h3></div>
+                            <div class="panel-heading"><h3><strong>STATUS DA DENUNCIA</strong></h3></div>
                             <div class="panel-body">
-                                <p><b>DENUNCIANTE:</b><br> {{$data->denunciante}}.</p>
-                                <p><b>TELEFONE: </b><br>{{$data->telefone}}.</p>
-                                <p><b>E-MAIL:</b><br> {{$data->email}}.</p>
-                                <p><b>CPF:</b><br> {{$data->cpf}}.</p>   
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="panel panel-success">
-                            <div class="panel-heading"><h3><strong>Dados do denunciante</strong></h3></div>
-                            <div class="panel-body">
+                                <p><b>STATUS:</b><br> {{$data->status}}.</p> 
+                                <p><b>DESCRICÃO:</b><br> {{$data->descricaoDoArquivamento}}.</p> 
                                 <form method="POST">
-                                    @csrf
-                                    <p><b>STATUS:</b><br> {{$data->status}}.</p>   
-                                    <p><b>ALTERAR STATUS</b></p>
-                                    <select name="status" value="{{$data->status}}" class="form-control">
+                                    @csrf  
+                                    <label><p><b>ALTERAR STATUS</b></p></label>
+                                    <select name="status" value="{{$data->status}}" class="form-control" autofocus>
                                         <option value=""></option>
-                                        <option value="Em Analise">Em Analise</option>
-                                        <option value="Concluída">Concluída</option>
+                                        <option value="Atentida">Atentida</option>
+                                        <option value="Arquivada">Arquivada</option>
+                                        <option value="Em Analise">Em Analise</option>  
                                     </select><br>
+                                    <label><p><b>DESCRICÃO</b></p></label><br>
+                                    <textarea name="descricaoDoArquivamento" value="{{$data->descricaoDoArquivamento}}" rows="2" class="form-control" placeholder="descreva porque selecionou o status acima"></textarea><br><br>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary"><strong>RETORNAR</strong></button>
-                                        <a href="{{route('pdf')}}" class="btn btn-sm btn-default"><strong>IMPRIMIR COMPROVANTE</strong><span class="glyphicon glyphicon-print"></span></a>
+                                        <button type="submit" class="btn btn-primary"><strong>RETORNAR</strong></button>                                       
                                     </div>
-                                </form>  
+                                </form>
                             </div>
                         </div>
                     </div>
