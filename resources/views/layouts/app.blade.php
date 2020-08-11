@@ -23,6 +23,7 @@
     -->
     <link rel="stylesheet" href="{{('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{('assets/css/estiloLoginRegister.css')}}">
+    <link rel="stylesheet" href="{{('assets/css/estiloFooter.css')}}">
 </head>
 <body>
     <div id="app">
@@ -67,7 +68,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

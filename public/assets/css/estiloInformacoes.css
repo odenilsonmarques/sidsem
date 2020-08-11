@@ -20,14 +20,12 @@ img{
     height:120px;
 
 }
-
 .panel-heading h3{
     text-align: left;
     color: #20B2AA;
     font-size: 19px;
     font-family: sans-serif;
 }
-
 .btn {
     font-size: 15px;
     font-family: sans-serif;
@@ -35,4 +33,17 @@ img{
 .glyphicon{
     font-size: 15px;
     margin-left:5px;
+}
+
+.btn-default{
+    background-color: #A9A9A9;
+    margin-left: 10px;
+}
+
+ul{
+    border:1px solid #FFF;
+}
+
+a{
+    color: #fff;
 }

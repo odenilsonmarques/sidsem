@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,11 +9,11 @@
             <form method="POST" action="{{route('login') }}">
                 @csrf
                 <h1>SidSem</h1>
-                <h3>Sistema de Denuncia Semam</h3><br/>
+                <h3>Sistema de Denúncia Semam</h3><br/>
                 
                 @error('email')
                     <div class="alert alert-danger text-center">
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback" role="alert" style="color: red">
                             <strong>{{ $message }}</strong>
                         </span>
                     </div>
@@ -40,14 +41,24 @@
                     </button>
 
                     @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}" style="color:#FFF">
+                        <a class="btn btn-link" href="{{route('password.request')}}" style="color:#FFF">
                             Esqueceu a senha ?
                         </a>
                     @endif
                 </div>
-            </form>      
+            </form><br>
         </div>
+        <footer class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12" id="footer">
+                        Todos os direito reservados || Secretaria Municipal do Ambiente - SEMAM</a><br><br>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <div class="col-lg-4"></div>
     </div>
 </div>
 @endsection
+

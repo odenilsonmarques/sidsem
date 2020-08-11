@@ -38,6 +38,7 @@
                                     <p><b>REGISTRADA EM: </b><span>{{\Carbon\Carbon::parse($dados->data)->format('d/m/Y \a\s H:i:s')}}.</span></p>
                                     <p><b>Nº DA DENUNCIA: </b> <span>{{$dados->id}}.</span></p>
                                     <p><b>STATUS: </b> <span>{{$dados->status}}.</span></p>
+                                    <p><b>DESCRIÇÃO DO STATUS: </b> <span>{{$dados->descricaoStatus}}.</span></p>
                                 </div>
                             </div>
                         <h2>Confira seus dados</h2>

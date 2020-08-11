@@ -14,12 +14,10 @@ class DenunciaController extends Controller
         $lista = Denuncia::all();
         return view('AdminDenunciaView.listaDenuncia',['lista'=>$lista]);
     }
-
     public function adiciona(){
         return view('AdminDenunciaView.adicionaDenuncia');
     }
     public function adicionaAction(Request $request){ 
-
         $request->validate([
             'crime'=>['required','string'],
             'descricao'=>['required','string','min:10','max:200'],
@@ -27,18 +25,17 @@ class DenunciaController extends Controller
             'bairro'=>['required','string','min:5','max:20'],
             'rua'=>['required','string','min:4','max:25'],
             'status'=>['required','string'],
-            'descricaoDoArquivamento'=>['required','string'],
+            'descricaoStatus'=>['required','string'],
             'denunciante'=>['required','string','min:5','max:30'],
             'telefone'=>['required','string']
         ]);
-
         $crime = $request->input('crime');
         $descricao = $request->input('descricao');
         $infrator = $request->input('infrator');
         $bairro = $request->input('bairro');
         $rua = $request->input('rua');
         $status = $request->input('status');
-        $descricaoDoArquivamento = $request->input('descricaoDoArquivamento');
+        $descricaoStatus = $request->input('descricaoStatus');
         $denunciante = $request->input('denunciante');
         $telefone = $request->input('telefone');
         $email = $request->input('email');
@@ -49,13 +46,11 @@ class DenunciaController extends Controller
         }else if ($request->hasFile('anexoUm') == null){
             $anexoUm = '';
         }
-
         if($request->hasFile('anexoDois') && $request->anexoDois->isValid()){
             $anexoDois = $request->file('anexoDois')->store('imagens');
         }else if ($request->hasFile('anexoDois') == null){
             $anexoDois = '';
         }
-
         if($request->hasFile('anexoTres') && $request->anexoTres->isValid()){
             $anexoTres = $request->file('anexoTres')->store('imagens');
         }else if ($request->hasFile('anexoTres') == null){
@@ -69,7 +64,7 @@ class DenunciaController extends Controller
         $data-> bairro = $bairro;
         $data-> rua = $rua;
         $data-> status = $status;
-        $data-> descricaoDoArquivamento = $descricaoDoArquivamento;
+        $data-> descricaoStatus = $descricaoStatus;
         $data -> anexoUm = $anexoUm;
         $data -> anexoDois = $anexoDois;
         $data -> anexoTres = $anexoTres;
@@ -78,10 +73,11 @@ class DenunciaController extends Controller
         $data-> email = $email;
         $data-> cpf = $cpf;
         $data ->save();
-        return redirect()->route('exibeInformacaoDenuncia')
-        ->with('SucessoCad','Sua denuncia foi salva com sucesso!');
+        return redirect()->route('exibeInformacaoDenuncia');
+        //return view('AdminDenunciaView.exibeInformacaoDenuncia');
     }
 
+    
     public function edita($id){
         $data = Denuncia::find($id);
         if($data){
@@ -93,14 +89,14 @@ class DenunciaController extends Controller
     public function editaAction(Request $request, $id){
         $request->validate([
             'status'=>['required','string'],
-            'descricaoDoArquivamento'=>['required','string']
+            'descricaoStatus'=>['required','string']
         ]);
         $status = $request->input('status');
-        $descricaoDoArquivamento = $request->input('descricaoDoArquivamento');
+        $descricaoStatus = $request->input('descricaoStatus');
 
         try{
             Denuncia::find($id)
-            ->update(['status'=>$status,'descricaoDoArquivamento'=>$descricaoDoArquivamento]);
+            ->update(['status'=>$status,'descricaoStatus'=>$descricaoStatus]);
             return redirect()->route('listaDenuncia')
             ->With('SucessoEdita','Status alterado com sucesso!');
         }catch(\Exception $e){
@@ -108,6 +104,4 @@ class DenunciaController extends Controller
             ->with('ErroEdita', 'Erro! apos o recebimento é necessario alterar o status da denuncia');
         }
     }
-
-    
 }

@@ -21,7 +21,7 @@
                             <h4>Departamento de Fiscalização Ambiental</h4>
                             <div class="alert alert-info  alert-dismissible">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">Fechar &times;</a>
-                                <h4><b>Bem - vindo ao cadastro de denuncia!</b><h4>
+                                <h4><b>Bem - vindo ao cadastro de denúncia!</b><h4>
                                     <h5>Faça sua denúncia. Mas antes leia os itens abaixo. O serviço é gratuito, seguro e sigiloso.</h5>
                                 <ul>
                                     <li>Informe dados confiáveis</li>
@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <input type="text" name="descricaoDoArquivamento" id="descricaoDoArquivamento" value="Aguardado para ser analisada" readonly="" class="form-control">
+                                                <input type="text" name="descricaoStatus" id="descricaoStatus" value="Aguardado para ser analisada" readonly="" class="form-control">
                                             </div>
                                         </div>
                                     </div>   
@@ -178,7 +178,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <a href="{{route('/')}}" class="btn btn-danger" role="button">CANCELAR<span class="glyphicon glyphicon-remove" style="font-size: 15px;margin-left:5px;color:#fff"></span></a>  
-                                            <button type="submit" class="btn btn-success">ENVIAR DENUNCIA<span class="glyphicon glyphicon-ok" style="font-size: 15px;margin-left:5px"></span></button>
+                                            <button type="submit"  class="btn btn-success">ENVIAR DENUNCIA<span class="glyphicon glyphicon-ok" style="font-size: 15px;margin-left:5px"></span></button>
                                         </div>
                                     </div>
                                 </div>  

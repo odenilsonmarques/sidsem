@@ -10,3 +10,8 @@ a{
 ul{
     border:1px solid #FFF;
 }
+
+.table-overflow {
+    max-height:420px;
+    overflow-x:auto;
+}

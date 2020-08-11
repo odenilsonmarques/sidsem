@@ -8,7 +8,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <h1>SidSem</h1>
-                <h3>Sistema de Denuncia Semam</h3><br/>
+                <h3>Sistema de Denúncia Semam</h3><br/>
 
                 <div class="form-group">
                     <label for="name">Nome</label>
@@ -56,8 +56,17 @@
                         {{ __('Registrar') }}
                     </button>
                 </div>
-            </form>
+            </form><br>
         </div>
+        <footer class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12" id="footer">
+                        Todos os direito reservados || Secretaria Municipal do Ambiente - SEMAM</a><br><br>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <div class="col-lg-4"></div>
     </div>
 </div>

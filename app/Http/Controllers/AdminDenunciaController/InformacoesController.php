@@ -10,8 +10,23 @@ use Illuminate\Http\Request;
 
 class InformacoesController extends Controller
 {
-    public function exibe(Request $id){
+    /*
+    public function exibe($id){
         $dados = Denuncia::all()->sortByDesc('id')->first();
-        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);
+        //$dados = Denuncia::where('id')->get(); 
+        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);   
+    }*/
+
+    /*
+    public function exibe($id){
+        $dados = Denuncia::find($id);
+        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);   
     }
+    */
+
+    
+    public function exibe(Request $id){
+        $dados = Denuncia::findOrFail($id);
+        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);    
+    } 
 }

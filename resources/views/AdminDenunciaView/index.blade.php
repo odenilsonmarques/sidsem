@@ -36,7 +36,7 @@
                                 <a href="{{route('adicionaDenuncia')}}">
                                     <span class="glyphicon glyphicon-bullhorn"></span>
                                     <h4><strong>Denuncie</strong></h4>
-                                    <p>Faça uma denuncia clicando aqui</p>
+                                    <p>Faça uma denúncia clicando aqui</p>
                                 </a>
                             </div>
                             <div class="col-lg-4 text-center">
