@@ -27,7 +27,7 @@ class DenunciaController extends Controller
             'status'=>['required','string'],
             'descricaoStatus'=>['required','string'],
             'denunciante'=>['required','string','min:5','max:30'],
-            'telefone'=>['required','string']
+            'telefone'=>['required','string'],
         ]);
         $crime = $request->input('crime');
         $descricao = $request->input('descricao');
@@ -40,6 +40,7 @@ class DenunciaController extends Controller
         $telefone = $request->input('telefone');
         $email = $request->input('email');
         $cpf = $request->input('cpf');
+        $id = $request->input('id');
 
         if($request->hasFile('anexoUm') && $request->anexoUm->isValid()){
             $anexoUm = $request->file('anexoUm')->store('imagens');
@@ -72,12 +73,34 @@ class DenunciaController extends Controller
         $data-> telefone = $telefone;
         $data-> email = $email;
         $data-> cpf = $cpf;
-        $data ->save();
+        $data-> save();
+        /* 
+            1º opcao
+            - nesse caso, o id não é exibido o id na url
+            - os dados nao sao exibido na view
+            - o pdf ta sempre imprimindo o ultimo registro
+            
+        */
         return redirect()->route('exibeInformacaoDenuncia');
-        //return view('AdminDenunciaView.exibeInformacaoDenuncia');
+
+        /* 
+            2º opcao (DESCARTADA), pois qd a pagina é atualizada outro dado ds inserido é caregado
+            - nesse caso, o id não é exibido o id na url
+            - os dados nao sao exibido na view
+            - o pdf ta sempre imprimindo o ultimo registro
+            - return redirect()->route('pdf'); 
+        */
+       
+       
+
+       //return view('AdminDenunciaView.exibeInformacaoDenuncia',['data'=>$data]);
+
+       //return view('AdminDenunciaView.pdf',['data'=>$data]);
+
+       //return redirect()->route('pdf',['data'=>$data]);
+
     }
 
-    
     public function edita($id){
         $data = Denuncia::find($id);
         if($data){

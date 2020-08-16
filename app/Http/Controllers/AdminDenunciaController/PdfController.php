@@ -12,9 +12,11 @@ use PDF;
 
 class PdfController extends Controller
 {
-   public function exibePdf(){
-    $dados = Denuncia::all()->sortByDesc('id')->first();
-    $pdf = PDF::loadView('adminDenunciaView.pdf',compact('dados'));
-    return $pdf->setPaper('a4')->stream('denuncia.pdf');
+   public function exibePdf(Request $id){
+      $dados = Denuncia::all()->sortByDesc('id')->first();
+      //$dados = Denuncia::find($id)->first();
+      $pdf = PDF::loadView('adminDenunciaView.pdf',['dados'=>$dados]);
+      return $pdf->setPaper('a4')->stream('denuncia.pdf');
+     // return $pdf->setPaper('a4')->download('denuncia.pdf');
    }
 }

@@ -19,10 +19,11 @@ Route::prefix('controledenuncia')->group(function(){
     Route::get('adicionaDenuncia','AdminDenunciaController\DenunciaController@adiciona')->name('adicionaDenuncia');
     Route::post('adicionaDenuncia','AdminDenunciaController\DenunciaController@adicionaAction');
 
-    //Route::post('exibeInformacaoDenuncia/{id}','AdminDenunciaController\InformacoesController@exibe')->name('exibeInformacaoDenuncia');
     Route::get('exibeInformacaoDenuncia','AdminDenunciaController\InformacoesController@exibe')->name('exibeInformacaoDenuncia');
-
-    Route::get('pdf','AdminDenunciaController\PdfController@exibePdf')->name('pdf');
+    //Route::get('exibeInformacaoDenuncia/{id}','AdminDenunciaController\InformacoesController@exibe');
+  
+    //Route::get('pdf','AdminDenunciaController\PdfController@exibePdf')->name('pdf');
+    Route::get('pdf','AdminDenunciaController\PdfController@exibePdf');
 
     Route::get('listaDenuncia','AdminDenunciaController\DenunciaController@lista')->name('listaDenuncia');
 

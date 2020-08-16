@@ -25,8 +25,9 @@ class InformacoesController extends Controller
     */
 
     
-    public function exibe(Request $id){
-        $dados = Denuncia::findOrFail($id);
-        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);    
-    } 
+    public function exibe (Request $id){
+        $dados = Denuncia::find($id);
+        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);  
+    }
 }
+
