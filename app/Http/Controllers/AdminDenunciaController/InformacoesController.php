@@ -25,9 +25,16 @@ class InformacoesController extends Controller
     */
 
     
-    public function exibe (Request $id){
-        $dados = Denuncia::find($id);
-        return view('AdminDenunciaView.exibeInformacaoDenuncia',['dados'=>$dados]);  
+    public function exibe(Request $request, $id){
+        //$data = Denuncia::find($id - env('MASK_ID'));
+        //return redirect()->route('exibeInformacaoDenuncia',['data'=> $data->id + env('MASK_ID') ]);
+        //return view('AdminDenunciaView.exibeInformacaoDenuncia',['data'=>$id->id - env('MASK_ID')]);  
+       // return redirect()->route('exibeInformacaoDenuncia');  
+
+       //$data = Denuncia::find($id - env('MASK_ID'));
+        $data = Denuncia::find($id);
+        return view('AdminDenunciaView.exibeInformacaoDenuncia',['data'=>$data]); 
+       // return redirect()->route('exibeInformacaoDenuncia');  
     }
 }
 

@@ -33,7 +33,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-4 text-center">
-                                <a href="{{route('adicionaDenuncia')}}">
+                                <a href="{{route('adicionaDenunciante')}}">
                                     <span class="glyphicon glyphicon-bullhorn"></span>
                                     <h4><strong>Denuncie</strong></h4>
                                     <p>Faça uma denúncia clicando aqui</p>

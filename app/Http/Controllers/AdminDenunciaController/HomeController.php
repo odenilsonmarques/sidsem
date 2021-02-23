@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
-        return view ('AdminDenunciaView.index');
+    public function realizar(){
+        return view ('AdminViews.denuncia');
     }
 }

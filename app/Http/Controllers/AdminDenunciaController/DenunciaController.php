@@ -26,8 +26,6 @@ class DenunciaController extends Controller
             'rua'=>['required','string','min:4','max:25'],
             'status'=>['required','string'],
             'descricaoStatus'=>['required','string'],
-            'denunciante'=>['required','string','min:5','max:30'],
-            'telefone'=>['required','string'],
         ]);
         $crime = $request->input('crime');
         $descricao = $request->input('descricao');
@@ -36,12 +34,9 @@ class DenunciaController extends Controller
         $rua = $request->input('rua');
         $status = $request->input('status');
         $descricaoStatus = $request->input('descricaoStatus');
-        $denunciante = $request->input('denunciante');
-        $telefone = $request->input('telefone');
-        $email = $request->input('email');
-        $cpf = $request->input('cpf');
-        $id = $request->input('id');
+        $denunciante_id = $request->input('denunciante_id');
 
+      
         if($request->hasFile('anexoUm') && $request->anexoUm->isValid()){
             $anexoUm = $request->file('anexoUm')->store('imagens');
         }else if ($request->hasFile('anexoUm') == null){
@@ -69,18 +64,20 @@ class DenunciaController extends Controller
         $data -> anexoUm = $anexoUm;
         $data -> anexoDois = $anexoDois;
         $data -> anexoTres = $anexoTres;
-        $data-> denunciante = $denunciante;
-        $data-> telefone = $telefone;
-        $data-> email = $email;
-        $data-> cpf = $cpf;
+        $data -> denunciante_id = $denunciante_id;
         $data-> save();
+        
         /* 
             1º opcao
-            - nesse caso, o id não é exibido o id na url
+            - nesse caso, o id não é exibido na url
             - os dados nao sao exibido na view
             - o pdf ta sempre imprimindo o ultimo registro
-            
+            - nao permite a dupliacao de registro na base
+            - a opcao abaixo passa o id na url
+            return redirect()->route('exibeInformacaoDenuncia',['dados'=>$data]);
         */
+       // return redirect()->route('exibeInformacaoDenuncia',['data'=>$data]);
+        //return redirect()->route('exibeInformacaoDenuncia',[$data->id + env('MASK_ID')]);
         return redirect()->route('exibeInformacaoDenuncia');
 
         /* 

@@ -102,7 +102,7 @@
                                     <img src="{{url("storage/{$data->anexoTres}")}}" alt="{{$data->name}}">
                                 @endif 
                             </div>
-                            <a href="{{route('pdf')}}" class="btn btn-default" target="_blank"><strong>IMPRIMIR COMPROVANTE</strong><span class="glyphicon glyphicon-print"></span></a><br/><br/>
+                            <a href="{{route('pdf',['id'=>$data->id])}}" class="btn btn-default" target="_blank"><strong>IMPRIMIR COMPROVANTE</strong><span class="glyphicon glyphicon-print"></span></a><br/><br/>
                         </div>
                     </div>
 

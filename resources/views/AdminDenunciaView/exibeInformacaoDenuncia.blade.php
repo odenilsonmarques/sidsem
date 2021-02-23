@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{('/assets/css/estiloFooter.css')}}">
     </head>
     <body>
+    
         <header>
             <div class="container-fluid  cabecalho">
                 <div class="container">
@@ -27,10 +28,7 @@
             <div class="container">
                 <h3 class="alert alert-success">Denuncia Enviada com sucesso</h3>
                 <div class="row">
-                    @foreach ($dados as $item)
-                        CRIME: {{$item->crime}}.<br><br>
-                        INFRATOR: {{$item->infrator}}.<br><br> 
-                    @endforeach
+                   {{$data->infrator}}
                 </div>
             </div>
             <div class="container">
@@ -39,8 +37,7 @@
                         <div class="panel panel-default">   
                             <div class="panel-footer">
                                 <a href="{{route('adicionaDenuncia')}}" class="btn btn-sm btn-success"><strong>FAZER NOVA DENUNCIA</strong><span class="glyphicon glyphicon-plus"></a>
-                                <a href="{{url('controledenuncia/pdf')}}" class="btn btn-sm btn-default"><strong>IMPRIMIR COMPROVANTE</strong><span class="glyphicon glyphicon-print"></span></a>    
-                                
+                                <a href="{{route('pdf')}}" class="btn btn-sm btn-default"><strong>IMPRIMIR COMPROVANTE</strong><span class="glyphicon glyphicon-print"></span></a>    
                             </div>
                         </div>
                     </div>
@@ -50,6 +47,7 @@
         @extends('layouts.templateFooter')
         <script type="text/javascript" src="{{('/assets/js/jquery-3.1.1.min.js')}}"></script>
         <script type="text/javascript" src="{{('/assets/js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{('/assets/js/exitEnter.js')}}"></script>
     </body>
 </html>
 

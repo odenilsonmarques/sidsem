@@ -27,16 +27,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                </div>
-                <div class="form-group">
-                    <label for="matricula">Matricula</label>
-                        <input id="matricula" type="matricula" class="form-control @error('matricula') is-invalid @enderror" name="matricula" value="{{ old('matricula') }}" required autocomplete="matricula" onkeyup="somenteNumeros(this);" maxlength="7" placeholder="Digite a matricula">
-                        @error('matricula')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
+                </div>    
                 <div class="form-group">
                     <label for="password">Senha</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Digite a senha"> 
