@@ -12,7 +12,7 @@
                 </a>
             </div>
             <div class="col-lg-3 text-center">
-                <a href="{{route('denunciaRealizar')}}">
+                <a href="{{route('cadDenuncianteCadastrar')}}">
                     <span class="glyphicon glyphicon-bullhorn"></span>
                     <h4><strong>DENUNCIAR</strong></h4>
                     <p>Faça uma denúncia clicando aqui</p>

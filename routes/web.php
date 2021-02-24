@@ -43,9 +43,8 @@ Auth::routes();
 
 Auth::routes();
 
-Route::get('/adicionaDenunciante','AdminDenunciaController\DenuncianteController@realizar')->name('denunciaRealizar');
-
-
+Route::get('/cadDenunciante','AdminDenunciaController\DenuncianteController@cadastrar')->name('cadDenuncianteCadastrar');
+Route::post('/cadDenunciante','AdminDenunciaController\DenuncianteController@cadastrarAction');
 
 Route::get('/', function(){
     return view('AdminViews.welcome');

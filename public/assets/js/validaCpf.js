@@ -9,7 +9,7 @@ function validaFormato(element) {
         if (sizeStrDocument === 11 ){
             if (!validaCPF(strDocument)){               
                 divResultado.innerText = "CPF Inválido!";
-                divResultado = document.getElementById('cpf').value = '';
+                divResultado = document.getElementById('cpf');
                 element.select();             
                 return false; 
             }
@@ -24,7 +24,6 @@ function validaFormato(element) {
         return false;
     }
 }
-
 // Funcao que valida o CPF
 function validaCPF(strDocument) {
     var soma;
@@ -58,9 +57,6 @@ function validaCPF(strDocument) {
     if (resto !== parseInt(strDocument.substring(10, 11))) return false;
     return true;
 }
-
-
-
 // Funcaoo que bloqueia teclas nao numericas
 function apenasNumeros(e)
 {

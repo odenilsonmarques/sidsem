@@ -10,14 +10,14 @@ use Illuminate\Http\Request;
 
 class DenuncianteController extends Controller
 {
-    public function realizar(){
-        return view('AdminViews.adicionaDenunciante');
+    public function cadastrar(){
+        return view('AdminViews.cadDenunciante');
     }
-    public function adicionaAction(Request $request){
+    public function cadastrarAction(Request $request){
         $request->validate ([
             'nome'=>['required','string','min:5','max:30'],
-            'telefone'=>['required','string'],
-            'cpf'=>['required','string'],
+            'telefone'=>['required','string','min:11'],
+            'cpf'=>['required','string','min:11'],
         ]);
         $nome = $request->input('nome');
         $telefone = $request->input('telefone');
@@ -30,6 +30,6 @@ class DenuncianteController extends Controller
         $data-> email = $email;
         $data-> cpf = $cpf;
         $data->save();
-        return redirect()->route('adicionaDenuncia');
+        return redirect()->route('cadDenuncianteCadastrar');
     }
 }
