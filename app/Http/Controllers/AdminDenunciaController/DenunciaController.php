@@ -5,20 +5,21 @@ namespace App\Http\Controllers\AdminDenunciaController;
 use App\Http\Controllers\Controller;
 
 use App\Denuncia;
+use App\Teste;
 
 use Illuminate\Http\Request;
 
 class DenunciaController extends Controller
 {
-    public function lista(){
-        $lista = Denuncia::all();
-        return view('AdminDenunciaView.listaDenuncia',['lista'=>$lista]);
+    public function cadastrar(){
+        return view('AdminViews.cadDenuncia');
     }
-    public function adiciona(){
-        return view('AdminDenunciaView.adicionaDenuncia');
-    }
-    public function adicionaAction(Request $request){ 
+    public function cadastrarAction(Request $request){ 
+        
         $request->validate([
+            'nome'=>['required','string','min:5','max:30'],
+            'telefone'=>['required','string','min:11'],
+            'cpf'=>['required','string','min:11'],
             'crime'=>['required','string'],
             'descricao'=>['required','string','min:10','max:200'],
             'infrator'=>['required','string','min:5','max:30'],
@@ -26,86 +27,161 @@ class DenunciaController extends Controller
             'rua'=>['required','string','min:4','max:25'],
             'status'=>['required','string'],
             'descricaoStatus'=>['required','string'],
+            'anexoUm'=>['nullable','image'],
+            'anexoDois'=>['nullable','image'],
+            
         ]);
-        $crime = $request->input('crime');
-        $descricao = $request->input('descricao');
-        $infrator = $request->input('infrator');
-        $bairro = $request->input('bairro');
-        $rua = $request->input('rua');
-        $status = $request->input('status');
-        $descricaoStatus = $request->input('descricaoStatus');
-        $denunciante_id = $request->input('denunciante_id');
+        
+        $nome = strtoupper($request->input('nome'));
+        $telefone =  strtoupper($request->input('telefone'));
+        $email =  strtoupper($request->input('email'));
+        $cpf =  strtoupper($request->input('cpf'));
+        $crime =  strtoupper($request->input('crime'));
+        $descricao =  strtoupper($request->input('descricao'));
+        $infrator =  strtoupper($request->input('infrator'));
 
-      
+        $municipio =  strtoupper($request->input('municipio'));
+        $bairro =  strtoupper($request->input('bairro'));
+        $rua =  strtoupper($request->input('rua'));
+        $numero =  strtoupper($request->input('numero'));
+        $pontoDeReferencia =  strtoupper($request->input('pontoDeRefencia'));
+
+        $status =  strtoupper($request->input('status'));
+        $descricaoStatus =  strtoupper($request->input('descricaoStatus'));
+        
+        //dd($request->file('anexo'));
+        //dd($request->file('anexoUm'));
+        //dd($request->file('anexoDois')->isValid());
+        /*
+        $anexo = $request->input('anexo');
+        $anexoUm = $request->input('anexoUm');
+        $anexoDois = $request->input('anexoDois');
+        */
+       
         if($request->hasFile('anexoUm') && $request->anexoUm->isValid()){
             $anexoUm = $request->file('anexoUm')->store('imagens');
         }else if ($request->hasFile('anexoUm') == null){
             $anexoUm = '';
         }
+
         if($request->hasFile('anexoDois') && $request->anexoDois->isValid()){
             $anexoDois = $request->file('anexoDois')->store('imagens');
         }else if ($request->hasFile('anexoDois') == null){
             $anexoDois = '';
         }
-        if($request->hasFile('anexoTres') && $request->anexoTres->isValid()){
-            $anexoTres = $request->file('anexoTres')->store('imagens');
-        }else if ($request->hasFile('anexoTres') == null){
-            $anexoTres = '';
-        }
-
+        
         $data = new Denuncia();
-        $data-> crime = $crime;
-        $data-> descricao = $descricao;
-        $data-> infrator = $infrator;
-        $data-> bairro = $bairro;
-        $data-> rua = $rua;
-        $data-> status = $status;
-        $data-> descricaoStatus = $descricaoStatus;
+        $data -> nome = $nome;
+        $data -> telefone = $telefone;
+        $data -> email = $email;
+        $data -> cpf = $cpf;
+        $data -> crime = $crime;
+        $data -> descricao = $descricao;
+        $data -> infrator = $infrator;
+        $data -> municipio = $municipio;
+        $data -> numero = $numero;
+        $data -> pontoDeReferencia = $pontoDeReferencia;
+
+        $data -> bairro = $bairro;
+        $data -> rua = $rua;
+        $data -> status = $status;
+        $data -> descricaoStatus = $descricaoStatus;
         $data -> anexoUm = $anexoUm;
         $data -> anexoDois = $anexoDois;
-        $data -> anexoTres = $anexoTres;
-        $data -> denunciante_id = $denunciante_id;
-        $data-> save();
+        $data -> save();
+        return redirect()->route('exibeInfomacaoExibe');
+    }
+
+
+    public function testar(){
+        return view('AdminViews.cadTeste');
+    }
+
+    public function testarAction(Request $request){ 
         
-        /* 
-            1º opcao
-            - nesse caso, o id não é exibido na url
-            - os dados nao sao exibido na view
-            - o pdf ta sempre imprimindo o ultimo registro
-            - nao permite a dupliacao de registro na base
-            - a opcao abaixo passa o id na url
-            return redirect()->route('exibeInformacaoDenuncia',['dados'=>$data]);
-        */
-       // return redirect()->route('exibeInformacaoDenuncia',['data'=>$data]);
-        //return redirect()->route('exibeInformacaoDenuncia',[$data->id + env('MASK_ID')]);
-        return redirect()->route('exibeInformacaoDenuncia');
+        $request->validate([
+            'nome'=>['required','string','min:5','max:30'],
+            'anexo'=>['required','image'],
+        ]);
+        
+        $nome = $request->input('nome');
+        $anexo = $request->input('anexo');
+        
+        if($request->hasFile('anexo') && $request->anexo->isValid()){
+            $anexo = $request->file('anexo')->store('imagens');
+        }else if ($request->hasFile('anexo') == null){
+            $anexo = '';
+        }
 
-        /* 
-            2º opcao (DESCARTADA), pois qd a pagina é atualizada outro dado ds inserido é caregado
-            - nesse caso, o id não é exibido o id na url
-            - os dados nao sao exibido na view
-            - o pdf ta sempre imprimindo o ultimo registro
-            - return redirect()->route('pdf'); 
-        */
-       
-       
-
-       //return view('AdminDenunciaView.exibeInformacaoDenuncia',['data'=>$data]);
-
-       //return view('AdminDenunciaView.pdf',['data'=>$data]);
-
-       //return redirect()->route('pdf',['data'=>$data]);
+        $dado = new Teste();
+        $dado -> nome = $nome;
+        $dado -> anexo = $anexo;
+        //dd($request->file('anexo'));
+        //dd($request->file('anexo')->isValid());
+        
+        $dado -> save();
+        return redirect()->route('listaTesteLista');
+    }
+    public function lista()
+    {
+        $registros = Teste::all();
+        return view('AdminViews.listaTeste',['registros'=>$registros]);
 
     }
 
-    public function edita($id){
+
+
+
+
+
+
+
+
+
+    public function exibe()
+    {
+        return view('AdminViews.informacao');
+    }
+
+    public function listar(){
+        $lista = Denuncia::all();
+        return view('AdminViews.listaDenuncias',['lista'=>$lista]);
+    }
+
+    public function detalhar($id){
         $data = Denuncia::find($id);
         if($data){
-            return view('AdminDenunciaView.editaDenuncia',['data'=>$data]);
+            return view('AdminViews.detalhesDenuncia',['data'=>$data]);
         }else{
             return redirect()->route('listaDenuncia');
         }
     }
+
+    /*
+    public function editar($id){
+        $data = Denuncia::find($id);
+        if($data){
+            return view('AdminViews.editaDenuncia',['data'=>$data]);
+        }else{
+            return redirect()->route('listaDenuncia');
+        }
+    }
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     public function editaAction(Request $request, $id){
         $request->validate([
             'status'=>['required','string'],
@@ -123,5 +199,5 @@ class DenunciaController extends Controller
             return redirect()->route('listaDenuncia')
             ->with('ErroEdita', 'Erro! apos o recebimento é necessario alterar o status da denuncia');
         }
-    }
+    }*/
 }

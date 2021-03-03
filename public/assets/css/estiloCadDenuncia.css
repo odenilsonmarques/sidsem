@@ -1,0 +1,9 @@
+#status, #descricaoStatus
+{
+    display: none;
+}
+
+label
+{
+    color: #3CB371;
+}

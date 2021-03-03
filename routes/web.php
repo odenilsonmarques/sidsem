@@ -43,8 +43,24 @@ Auth::routes();
 
 Auth::routes();
 
-Route::get('/cadDenunciante','AdminDenunciaController\DenuncianteController@cadastrar')->name('cadDenuncianteCadastrar');
-Route::post('/cadDenunciante','AdminDenunciaController\DenuncianteController@cadastrarAction');
+Route::get('/cadDenuncia','AdminDenunciaController\DenunciaController@cadastrar')->name('cadDenunciaCadastrar');
+Route::post('/cadDenuncia','AdminDenunciaController\DenunciaController@cadastrarAction');
+
+
+Route::get('/cadTeste','AdminDenunciaController\DenunciaController@testar')->name('cadTesteTestar');
+Route::post('/cadTeste','AdminDenunciaController\DenunciaController@testarAction');
+Route::get('/listaTeste','AdminDenunciaController\DenunciaController@lista')->name('listaTesteLista');
+
+
+Route::get('/exibeInformacao','AdminDenunciaController\DenunciaController@exibe')->name('exibeInfomacaoExibe');
+//Route::post('/cadDenuncia','AdminDenunciaController\DenunciaController@cadastrarAction');
+
+Route::get('/listaDenuncias','AdminDenunciaController\DenunciaController@listar')->name('listaDenunciasListar');
+
+//Route::get('editaDenuncia/{id}','AdminDenunciaController\DenunciaController@editar')->name('editaDenunciaEditar');
+//Route::post('editaDenuncia/{id}','AdminDenunciaController\DenunciaController@editarAction');
+
+Route::get('detalhesDenuncia/{id}','AdminDenunciaController\DenunciaController@detalhar')->name('detalhesDenunciaDetalhar');
 
 Route::get('/', function(){
     return view('AdminViews.welcome');
